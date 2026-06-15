@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="./images/pathOS-R.png" height="500px" alt="roadmap" />
   <h1>Learning Path OS for Red Teamers</h1>
+  <img src="./images/pathOS-R.png" height="500px" alt="roadmap" />
 </div>
 
 <br><br>
@@ -67,8 +67,9 @@ So, check your [Linux](#linux) or [Windows](#windows) PATH environment variable 
 
 - **Access control models:** DAC, MAC, RBAC, how Linux and Windows implement them differently, what SELinux and UAC are at the model level. — Enable SELinux in a Linux VM in permissive mode. Observe what it denies when performing the same actions as before. Document what changed and why.
 - **System boot:** BIOS/UEFI, bootloader, init/systemd vs. Windows Boot Manager, what happens before the login screen, and why it matters for persistence and bootkits — Document the complete boot process of Linux and Windows VMs. Indicate at what stage each persistence mechanism is involved.
-  > **Evaluation**  
-  > Take an attack you already master (a Linux PrivEsc, a Windows one, and a web vulnerability) and write for each one what layer of the OS it occurs at, what component of the kernel or security model fails, and what would have to change in the OS to make it impossible.
+
+> **Evaluation**  
+> Take an attack you already master (a Linux PrivEsc, a Windows one, and a web vulnerability) and write for each one what layer of the OS it occurs at, what component of the kernel or security model fails, and what would have to change in the OS to make it impossible.
 
 ### Relevant Block
 
@@ -113,19 +114,18 @@ So, check your [Linux](#linux) or [Windows](#windows) PATH environment variable 
 - **Automation and environments:** Cron jobs, relative paths, environment variables as vectors — Intentionally create a vulnerable cron job and exploit the path. Document the process.
 - **Misconfigurations & Cleartext Passwords:** misconfigured sudoers, dangerous wildcards, scripts with excessive permissions. — Replicate three PrivEsc scenarios from GTFOBins. Use `grep` to hunt for exposed credentials in `/var/www/` or `/opt/`. [Run the misconfiguration script](./scripts_evaluations_PathOS/Linux_misconfigurationTwo_lab.sh)
 - **Kernel Exploits:** Local PrivEsc concepts based on `uname -r` — Learn how to identify out-of-date kernels and match them with known public exploits securely.
-  > **Evaluation**  
-  > A VM with 5 hidden PrivEsc vectors (including a custom SUID, a path hijacking, a bad sudoers rule, and a hidden credential). Find them all, exploit them, and deliver a report with: vector found — why it exists — how it was exploited — how to patch it. [Run this exam script](./scripts_evaluations_PathOS/Linux_thirdblock_lab.sh)
+> **Evaluation**  
+> A VM with 5 hidden PrivEsc vectors (including a custom SUID, a path hijacking, a bad sudoers rule, and a hidden credential). Find them all, exploit them, and deliver a report with: vector found — why it exists — how it was exploited — how to patch it. [Run this exam script](./scripts_evaluations_PathOS/Linux_thirdblock_lab.sh)
 
 ### Fourth Block — Bash
 
 - **First Steps:** Variables, conditionals, loops, functions, redirection, pipes. — Rewrite 5 manually executed commands as reusable scripts
 - **Text Processing:** `grep`, `awk`, `sed`, `cut` — Parse and filter complex command outputs, log files, and tool results efficiently.
 - **Bash for Red Teamers:** Offensive scripts: enumerate users, look up SUIDs, check cron jobs, list ports. — Write a post-exploitation enumeration script that runs on any Linux distribution. Validate it using `shellcheck`.
-  > **Evaluation:**
-  >
-  > - 2 OverTheWire Bandit machines (levels 20–30) with no write-ups in the first hour
-  > - 1 THM or HTB Linux-focused machine using PrivEsc
-  > - Full, professionally formatted report for one of them
+> **Evaluation:**
+> - 2 OverTheWire Bandit machines (levels 20–30) with no write-ups in the first hour
+> - 1 THM or HTB Linux-focused machine using PrivEsc
+> - Full, professionally formatted report for one of them
 
 ### Relevan Block Linux
 
@@ -137,14 +137,14 @@ So, check your [Linux](#linux) or [Windows](#windows) PATH environment variable 
 
 > The **_Relevant Modules_** are only taken when the topic/technique has been explored in sufficient depth and versatility has been demonstrated.
 
-### First Block —
+### First Block — System
 
 - **Operating system structure**: NTFS file system, directory classification, paths, environment variables, cmd vs. PowerShell. → Explore C:\Windows\System32, C:\Users, and C:\Program Files. Describe the purpose of each.
 - **NTFS Users, Groups, and Permissions**: ACLs, Inheritance, icacls, Differences from the Unix Model. → Create three local users and assign specific permissions to files and folders using icacls. Intentionally break access and fix it.
 - **Windows Registry**: Structure (hives), key information for a Red Teamer, and how to read and modify it from the command line. → Identify registry keys related to autorun, services, and stored credentials. Document each key and what it exposes.
-  > **Evaluation:**  
-  > You are given a system with incorrectly configured permissions and broken access controls. Identify all the problems, correct them, and submit a report explaining each one.
-  > [Run this exam script](./scripts_evaluations_PathOS/Win_FirstBlock.ps1)
+> **Evaluation:**  
+> You are given a system with incorrectly configured permissions and broken access controls. Identify all the problems, correct them, and submit a report explaining each one.
+> [Run this exam script](./scripts_evaluations_PathOS/Win_FirstBlock.ps1)
 
 ### Second Block — Machine
 
